@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <link rel="stylesheet" type="text/css" href="/assets/css/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Tactile theme | Tactile is a theme for GitHub Pages.</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Tactile theme" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Tactile is a theme for GitHub Pages." />
+<meta property="og:description" content="Tactile is a theme for GitHub Pages." />
+<link rel="canonical" href="http://localhost:4000/poweron.html" />
+<meta property="og:url" content="http://localhost:4000/poweron.html" />
+<meta property="og:site_name" content="Tactile theme" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Tactile theme" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Tactile is a theme for GitHub Pages.","headline":"Tactile theme","url":"http://localhost:4000/poweron.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Tactile theme</h1>
+          <h2>Tactile is a theme for GitHub Pages.</h2>
+        </header>
+        <section id="downloads" class="clearfix">
+          
+          <a href="" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          
+	
+        </section>
+        <hr>
+        <section id="main_content">
+          <h1 id="before-powering-on">Before powering on</h1>
+<h2 id="zero-position">Zero Position</h2>
+
+<p>Make sure that the z1_ctrl program is turned off before power on the robotic arm, otherwise there may be danger. And let the robotic arm stay in zero position. The zero position of the robotic arm is as shown in the figure below. The lines on both sides of the joint gaps of J1 and J6 correspond exactly, and the other joints can be placed in order.</p>
+
+<p>When the device is powered on successfully, the green light is steady on, and the blue light will flash once the self-check passes.</p>
+
+<p>It should be noted that each joint of the robotic arm should be turned to the zero position before use every time, so that the theoretical zero position in the control algorithm coincides with the actual mechanical zero position. In addition, the black and white power cord of the motor at the end of the robotic arm has DC24V power supply. If it is not needed, be sure to wrap the black and white power cord with insulating tape to prevent danger such as short circuit.
+Note</p>
+
+<p>If the terminal prints ‘Arm Version 3-8’ after executing the ‘z1_Ctrl -v’, it’s allowed to power on the robot in any position.</p>
+
+<p>And the fisrt thing when power on is to press ‘~’ key or execute ‘backtostart’.</p>
+
+<h2 id="network-configuration">Network configuration</h2>
+<p>The default IP address of the robotics arm is 192.168.123.110. The users need to change the IP of the PC before control the robot.</p>
+
+<h2 id="change-network-segment">Change network segment</h2>
+<p>With the example of changing to 192.168.123.162, run ifConfig in the terminal and you will find your port name. For example, enpxxx.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo ifconfig enpxxx down                                   # enpxxx is your PC port 
+sudo ifconfig enpxxx 192.168.123.162/24 
+sudo ifconfig enpxxx up 
+</code></pre></div></div>
+<p>The above method is to change the IP temporarily, you can also change the IP of the PC permanently, the operation please see below:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo vim /etc/network/interfaces
+</code></pre></div></div>
+
+<p>Add the following text to the interfaces file opened above.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>auto enpxxx
+iface enpxxx inet static
+address 192.168.123.162
+netmask 255.255.255.0
+</code></pre></div></div>
+<h2 id="change-the-default-ip-address">Change the default IP address</h2>
+<p>In this case, you can run the ping 192.168.123.110 command to check whether the connection with the robotic arm is normal.</p>
+
+<h2 id="singular-position">Singular Position</h2>
+<p>When the robotic arm is in a singular position, the degrees of freedom will degenerate and it will make the angular velocity of some joints to be infinite, and the robotic will be at the risk of losing control.</p>
+
+<p>It is recommended to run the robotic arm to the forward point after power-on to avoid this area.
+<a href="./">back</a></p>
+
+        </section>
+
+        <footer>
+        
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.
+        </footer>
+
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,24 +1,42 @@
 ---
 layout: default
 ---
-
+# Test
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-[Link to another page](./another-page.html).
+[Link to another page](./poweron.html).
+# Packing List 
 
-There should be whitespace between paragraphs.
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
-# Header 1
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+|Type	|Quantity |	Note |
+--- |--- |--- |
+|Z1 |	1	| / |
+| Power Adapter |	1 |	DC24V |
+| Fixed Plate	| 1 |	/ |
+| Clip G | 2	| / |
+| Net Cable	| 1	| 2m | 
+| Hexagon socket screws	| 4	 | M6X16 |
+| Hexagon socket screws |	2	 | M2.5X8 |
+| 2mm Hexagonal wrench |	1	 | / |
+| 5mm Hexagonal wrench | 1 |	/ |
 
-## Header 2
+# Installation of Robotics Arm
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+When fixing the robotic arm, the user can design and install the platform according to the hole size of the robotic arm base and the real environment. The fixed platform of the robotic arm needs to bear not only its weight, but also the instantaneous dynamic force during the maximum acceleration movement. Four M6 bolts are used for the robotic arm, and the robotic arm is installed with a hex wrench. The base installation please see below:
+
+
+Certainly, we provide fixing plates and G clips for directly being fixed to the desktop.
+
+
+# Cable Connection
+There are two main types of robotic arm cables: power supply cables and telecommunication cables. The connector of the power supply cable of the robotic arm has a mistake-proof function, and the power supply cable can be inserted into the power supply port of the robotic arm as shown in the figure below.
+Note
+
+The main network port is used to control the robot, and the auxiliary network port is used to change the default IP address. The two should not be mixed.
+
+The power supply is not hot-swappable.
 
 ### Header 3
 
