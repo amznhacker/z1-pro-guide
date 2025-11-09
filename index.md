@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-# Test
+# Unitree Z1 Documentation
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 [Link to another page](./poweron.html).
