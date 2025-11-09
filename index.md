@@ -4,7 +4,9 @@ layout: default
 # Unitree Z1 Documentation
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-[Link to another page](./poweron.html).
+[Before Powering On](./poweron.html).
+
+{:toc}
 # Packing List 
 
 
