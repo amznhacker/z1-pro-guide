@@ -17,14 +17,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Tactile is a theme for GitHub Pages." />
 <meta property="og:description" content="Tactile is a theme for GitHub Pages." />
-<link rel="canonical" href="http://localhost:4000/" />
-<meta property="og:url" content="http://localhost:4000/" />
+<link rel="canonical" href="http://localhost:4000/technicalparameters.html" />
+<meta property="og:url" content="http://localhost:4000/technicalparameters.html" />
 <meta property="og:site_name" content="Tactile theme" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Tactile theme" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"Tactile is a theme for GitHub Pages.","headline":"Tactile theme","name":"Tactile theme","url":"http://localhost:4000/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Tactile is a theme for GitHub Pages.","headline":"Tactile theme","url":"http://localhost:4000/technicalparameters.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
@@ -57,88 +57,73 @@
         </section>
         <hr>
         <section id="main_content">
-          <h1 id="unitree-z1-documentation">Unitree Z1 Documentation</h1>
-
-<p><a href="./poweron.html">Before Powering On</a></p>
-
-<p><a href="./technicalparameters.html">Technical Parameters</a></p>
-
-<p><a href="./sdkoperation.html">SDK Operation</a></p>
-
-<p><a href="./environment.html">environment.md</a></p>
-
-<p><a href="./introduction.html">Introduction</a></p>
-
-<p><a href="./keyboard.html">Keyboard</a></p>
-
-<p><a href="./abnormalities.html">Abnormalities</a></p>
-
-<p><a href="./setup.html">setup</a></p>
-<h1 id="packing-list">Packing List</h1>
+          <h1 id="technical-parameters">Technical parameters</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Type</th>
-      <th>Quantity</th>
-      <th>Note</th>
+      <th>Robot</th>
+      <th>Z1</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Z1</td>
-      <td>1</td>
-      <td>/</td>
+      <td>DOF</td>
+      <td>6 rotation</td>
     </tr>
     <tr>
-      <td>Power Adapter</td>
-      <td>1</td>
-      <td>DC24V</td>
+      <td>Weight</td>
+      <td>4.1kg</td>
     </tr>
     <tr>
-      <td>Fixed Plate</td>
-      <td>1</td>
-      <td>/</td>
+      <td>Payload</td>
+      <td>≥3kg</td>
     </tr>
     <tr>
-      <td>Clip G</td>
-      <td>2</td>
-      <td>/</td>
+      <td>Maximum reach</td>
+      <td>740mm</td>
     </tr>
     <tr>
-      <td>Net Cable</td>
-      <td>1</td>
-      <td>2m</td>
+      <td>Repeatability</td>
+      <td>~0.1mm</td>
     </tr>
     <tr>
-      <td>Hexagon socket screws</td>
-      <td>4</td>
-      <td>M6X16</td>
+      <td>Power supply</td>
+      <td>24V &gt;20A</td>
     </tr>
     <tr>
-      <td>Hexagon socket screws</td>
-      <td>2</td>
-      <td>M2.5X8</td>
+      <td>Communication</td>
+      <td>Ethenet</td>
     </tr>
     <tr>
-      <td>2mm Hexagonal wrench</td>
-      <td>1</td>
-      <td>/</td>
-    </tr>
-    <tr>
-      <td>5mm Hexagonal wrench</td>
-      <td>1</td>
-      <td>/</td>
+      <td>Programming</td>
+      <td>c++</td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="installation-of-robotics-arm">Installation of Robotics Arm</h1>
+<h2 id="joints-ranges">Joints ranges</h2>
 
-<p>When fixing the robotic arm, the user can design and install the platform according to the hole size of the robotic arm base and the real environment. The fixed platform of the robotic arm needs to bear not only its weight, but also the instantaneous dynamic force during the maximum acceleration movement. Four M6 bolts are used for the robotic arm, and the robotic arm is installed with a hex wrench. The base installation please see below:</p>
+<h2 id="coordinate">Coordinate</h2>
+<p>Joint Coordinate</p>
 
-<p>Certainly, we provide fixing plates and G clips for directly being fixed to the desktop.</p>
+<p>The serial numbers of its joints start from J1 and increase to J6 one by one. In the above figure, key + represents the positive direction of the joint rotation, and key - represents the negative direction.</p>
 
+<h2 id="joint--ω--υ">Joint 	ω 	υ</h2>
+<p>J1 	[0, 0, 1] 	[0, 0, 0.065]
+J2 	[0, 1, 0] 	[0, 0, 0.1115]
+J3 	[0, 1, 0] 	[-0.35, 0. 0.1115]
+J4 	[0, 1, 0] 	[-0.132, 0, 0.1685]
+J5 	[0, 0, 1] 	[-0.06, 0, 0.1685]
+J6 	[1, 0, 0] 	[-0.0128, 0, 0.1685]</p>
+
+<h2 id="cartesian-coordinate">Cartesian coordinate</h2>
+
+<h2 id="flange">Flange</h2>
+
+<p>Where the absolute initial position of the gripper loading plane (the J6 end plane) is [0,049, 0, 0.1605]</p>
+
+<p>The position of the center of the Unitree_gripper relative to the loading plane is [0.0382, 0, 0].</p>
 
         </section>
 

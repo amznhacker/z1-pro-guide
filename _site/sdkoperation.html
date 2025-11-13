@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <link rel="stylesheet" type="text/css" href="/assets/css/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Tactile theme | Tactile is a theme for GitHub Pages.</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Tactile theme" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Tactile is a theme for GitHub Pages." />
+<meta property="og:description" content="Tactile is a theme for GitHub Pages." />
+<link rel="canonical" href="http://localhost:4000/sdkoperation.html" />
+<meta property="og:url" content="http://localhost:4000/sdkoperation.html" />
+<meta property="og:site_name" content="Tactile theme" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Tactile theme" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Tactile is a theme for GitHub Pages.","headline":"Tactile theme","url":"http://localhost:4000/sdkoperation.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Tactile theme</h1>
+          <h2>Tactile is a theme for GitHub Pages.</h2>
+        </header>
+        <section id="downloads" class="clearfix">
+          
+          <a href="" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          
+	
+        </section>
+        <hr>
+        <section id="main_content">
+          <h1 id="ros-simulation">ROS Simulation</h1>
+
+<p>① Set ros workspace</p>
+
+<p>If the user is not familiar with the path setting, please create the folder named unitree_ws/src and move folder unitree_ros folder in it, which shoud be ~/unitree_ws/src/unitree_ros. Then download the folder unitree_legged_msgs, move it to ~/unitree_ws/src/.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd ~/unitree_ws                                                         #Open the folder
+catkin_make                                                             #Initialize ROS workspace
+echo "source ~/unitree_ros/devel/setup.bash"&gt;&gt;~/.bashrc #Add the ros path to the environment variables
+source ~/.bashrc                                                        #Update environment variables
+</code></pre></div></div>
+<p>Run roslaunch unitree_gazebo z1.launch, If successfully configured, the simulation interface of Gazebo will be displayed.</p>
+
+<p>Tips：After entering <code class="language-plaintext highlighter-rouge">RosLaunch Z</code>, press tap to check whether the terminal will automatically complete. If rosLaunch Z1_ is successfully programmed, that means the path setting is successful.</p>
+
+<p>② Open the CMakeLists in the z1_controller folder and change the compilation conditions as follows.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set(COMMUNICATION UDP)             #UDP
+set(COMMUNICATION ROS)               #ROS
+</code></pre></div></div>
+
+<p>③ Compile z1_controller, create a folder named build in this file (open the second terminal).</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir build
+cd build
+cmake ..
+make
+</code></pre></div></div>
+<p>Execute the executable file ./z1_ctrl in folder build. The default control mode is SDK, if you need to use keyboard control, use ./z1_ctrl k</p>
+
+<p>When executing this command, the terminal will continuously print statements, such as[WARNING] UDPPort::recv, unblock version, wait time out, this is normal because we have not started the robotic arm SDK to communicate with the robotic arm controller.</p>
+
+<p>Various information will be printed in this window, please observe the content of this window.</p>
+
+<p>④ Open folder z1_SDK and create folder build in it (open the third terminal).</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir build
+cd build
+cmake ..
+make
+</code></pre></div></div>
+<p>Execute the executable file in folder build.</p>
+
+<p>There are two executable files generated, example_lowcmd_send and bigdemo.</p>
+
+<p>This time we run bigdemo.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./highcmd_basic
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Keyboard Operation:The specific keys will be introduced in state machine section.
+</code></pre></div></div>
+
+<p>First press 2 on the keyboard and then press key 0, the robotic arm will enter the label operation state machine. Input forward at the prompt, then click enter, the robotic arm will run forward. Press ~ again, return to the origin. After returning to the origin, it will automatically enter the joint control mode. At this time, the rotation of the robotic arm can be controlled by long press according to the following keys.</p>
+
+        </section>
+
+        <footer>
+        
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.
+        </footer>
+
+      </div>
+    </div>
+  </body>
+</html>

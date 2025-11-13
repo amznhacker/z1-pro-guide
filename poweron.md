@@ -15,7 +15,7 @@ Note
 
 If the terminal prints ‘Arm Version 3-8’ after executing the ‘z1_Ctrl -v’, it’s allowed to power on the robot in any position.
 
-And the fisrt thing when power on is to press ‘~’ key or execute ‘backtostart’.
+And the first thing when power on is to press ‘~’ key or execute ‘backtostart’.
 
 ## Network configuration
 The default IP address of the robotics arm is 192.168.123.110. The users need to change the IP of the PC before control the robot. 
