@@ -1,4 +1,4 @@
-# Unitree Z1 — ROS + SDK Setup (Deterministic)
+# Unitree Z1 
 
 ---
 
