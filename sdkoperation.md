@@ -36,7 +36,7 @@ mkdir -p ~/unitree_ws/src
 cd ~/unitree_ws/src
 ```
 
-### Place unitree_ros and unitree_legged_msgs here (clone or move folders)
+Place unitree_ros and unitree_legged_msgs here (clone or move folders)
 #### Repositories
 ```
 git clone https://github.com/unitreerobotics/unitree_ros.git 
