@@ -1,7 +1,7 @@
 # Unitree Z1 
 
 ---
-## 0️⃣ System Prerequisites (Mandatory)
+## 0. System Prerequisites (Mandatory)
 
 ### Supported ROS Versions
 - ROS Noetic (Ubuntu 20.04)
@@ -17,7 +17,7 @@ sudo apt install \
   ros-noetic-effort-controllers \
   ros-noetic-joint-trajectory-controller
 ```
-## ① Create and Build the ROS Workspace (Correct Way)
+## 1. Create and Build the ROS Workspace (Correct Way)
 
 ### Workspace Layout (Must Be Exact)
 
@@ -65,7 +65,7 @@ roslaunch unitree_gazebo z1.launch
 ```
 ✔ If Gazebo opens and Z1 appears → ROS path is correct
 
-## ② Configure Communication Mode (Important)
+## 2. Configure Communication Mode (Important)
 Edit File
 ~/unitree_ws/src/unitree_ros/z1_controller/CMakeLists.txt
 Choose ONE Communication Mode
