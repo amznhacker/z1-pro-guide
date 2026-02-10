@@ -18,6 +18,8 @@ git clone https://github.com/unitreerobotics/unitree_ros.git
 
 git clone https://github.com/unitreerobotics/unitree_ros_to_real.git
 ```
+unitree_legged_msgs is found under unitree_ros_to_real
+
 ### Build Workspace
 
 ```
