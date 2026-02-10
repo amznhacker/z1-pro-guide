@@ -109,12 +109,9 @@ Optional Alias
 alias unitree='source ~/unitree_ws/devel/setup.bash'
 🔬 Validation Checklist
 Run these after activation:
-
+```
 echo $ROS_DISTRO          # noetic
 which roscore             # /opt/ros/noetic/bin/roscore
 rospack find unitree_controller
+```
 
-If you want, next step we can turn this into:
-- a **Phase-0 lab checklist**
-- a **README.md for your repo**
-- or a **failure-mode / debug appendix** (what breaks if each step is wrong)
