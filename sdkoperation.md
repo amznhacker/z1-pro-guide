@@ -6,11 +6,12 @@
 
 ### Workspace Layout (Must Be Exact)
 
-```text
+```
 ~/unitree_ws/
 ├── src/
 │   ├── unitree_ros/
 │   └── unitree_legged_msgs/
+```
 Build Workspace
 source /opt/ros/noetic/setup.bash
 
