@@ -12,7 +12,13 @@
 │   ├── unitree_ros/
 │   └── unitree_legged_msgs/
 ```
-Build Workspace
+#### Repositories
+```
+git clone https://github.com/unitreerobotics/unitree_ros.git 
+
+git clone https://github.com/unitreerobotics/unitree_ros_to_real.git
+```
+### Build Workspace
 
 ```
 source /opt/ros/noetic/setup.bash
