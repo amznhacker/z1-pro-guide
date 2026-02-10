@@ -1,6 +1,21 @@
 # Unitree Z1 
 
 ---
+## 0️⃣ System Prerequisites (Mandatory)
+
+### Supported ROS Versions
+- ROS Noetic (Ubuntu 20.04)
+- ROS Melodic (Ubuntu 18.04)
+
+### Install ros_control stack (Noetic)
+
+```bash
+sudo apt install \
+  ros-noetic-controller-manager \
+  ros-noetic-gazebo-ros-control \
+  ros-noetic-joint-state-controller \
+  ros-noetic-effort-controllers \
+  ros-noetic-joint-trajectory-controller
 
 ## ① Create and Build the ROS Workspace (Correct Way)
 
