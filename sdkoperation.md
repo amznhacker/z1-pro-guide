@@ -98,7 +98,7 @@ cd ~/unitree_ws
 catkin_make
 ```
 
-### ③ Build z1_controller (Standalone SDK Test)
+### 3. Build z1_controller (Standalone SDK Test)
 This is NOT ROS — this is SDK-level testing.
 
 ```bash
@@ -126,7 +126,7 @@ Expected warning:
 
 ✔ Normal when no physical arm is connected.
 
-### ④ Build and Test Z1 SDK
+### 4. Build and Test Z1 SDK
 ```bash
 cd ~/unitree_ws/src/unitree_ros/z1_sdk
 mkdir -p build
@@ -148,7 +148,7 @@ Keyboard control (SDK):
 
 Joint control mode activates automatically.
 
-### ⑤ Environment Usage Rules (Non-Negotiable)
+### 5. Environment Usage Rules (Non-Negotiable)
 
 `.bashrc` should contain ONLY:
 ```bash
