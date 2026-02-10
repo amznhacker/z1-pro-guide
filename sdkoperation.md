@@ -12,13 +12,6 @@
 │   ├── unitree_ros/
 │   └── unitree_legged_msgs/
 ```
-#### Repositories
-```
-git clone https://github.com/unitreerobotics/unitree_ros.git 
-
-git clone https://github.com/unitreerobotics/unitree_ros_to_real.git
-```
-unitree_legged_msgs is found under unitree_ros_to_real
 
 ### Build Workspace
 
@@ -28,19 +21,33 @@ mkdir -p ~/unitree_ws/src
 cd ~/unitree_ws/src
 ```
 
-# Place unitree_ros and unitree_legged_msgs here
-# (clone or move folders)
+# Place unitree_ros and unitree_legged_msgs here (clone or move folders)
+#### Repositories
+```
+git clone https://github.com/unitreerobotics/unitree_ros.git 
 
+git clone https://github.com/unitreerobotics/unitree_ros_to_real.git
+```
+unitree_legged_msgs is found under unitree_ros_to_real
+
+```
 cd ~/unitree_ws
 catkin_make
 ❗ Do NOT modify .bashrc here
+```
 
-Activate Workspace (Explicit, Deterministic)
+### Activate Workspace 
+```
 source ~/unitree_ws/devel/setup.bash
+```
 Verify
+```
 rospack find unitree_gazebo
+```
 Launch Simulation
+```
 roslaunch unitree_gazebo z1.launch
+```
 ✔ If Gazebo opens and Z1 appears → ROS path is correct
 
 ② Configure Communication Mode (Important)
