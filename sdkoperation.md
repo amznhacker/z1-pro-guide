@@ -21,7 +21,7 @@ mkdir -p ~/unitree_ws/src
 cd ~/unitree_ws/src
 ```
 
-# Place unitree_ros and unitree_legged_msgs here (clone or move folders)
+### Place unitree_ros and unitree_legged_msgs here (clone or move folders)
 #### Repositories
 ```
 git clone https://github.com/unitreerobotics/unitree_ros.git 
@@ -50,7 +50,7 @@ roslaunch unitree_gazebo z1.launch
 ```
 ✔ If Gazebo opens and Z1 appears → ROS path is correct
 
-② Configure Communication Mode (Important)
+## ② Configure Communication Mode (Important)
 Edit File
 ~/unitree_ws/src/unitree_ros/z1_controller/CMakeLists.txt
 Choose ONE Communication Mode
