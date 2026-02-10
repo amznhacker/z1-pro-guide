@@ -10,7 +10,7 @@ If the user is not familiar with the path setting, please create the folder name
 ```
 cd ~/unitree_ws                                                         #Open the folder
 catkin_make                                                             #Initialize ROS workspace
-echo "source ~/unitree_ros/devel/setup.bash">>~/.bashrc #Add the ros path to the environment variables
+echo "source ~/unitree_ws/devel/setup.bash">>~/.bashrc #Add the ros path to the environment variables
 source ~/.bashrc                                                        #Update environment variables
 ```
 Run roslaunch unitree_gazebo z1.launch, If successfully configured, the simulation interface of Gazebo will be displayed.
