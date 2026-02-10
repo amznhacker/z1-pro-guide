@@ -13,10 +13,10 @@
 │   └── unitree_legged_msgs/
 ```
 Build Workspace
-source /opt/ros/noetic/setup.bash
 
+```source /opt/ros/noetic/setup.bash
 mkdir -p ~/unitree_ws/src
-cd ~/unitree_ws/src
+cd ~/unitree_ws/src ```
 
 # Place unitree_ros and unitree_legged_msgs here
 # (clone or move folders)
