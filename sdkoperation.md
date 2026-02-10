@@ -1,57 +1,114 @@
----
-layout: default
----
+① Create and build the ROS workspace (correct way)
+--------------------------------------------------
 
-# ROS Simulation
+### Workspace layout (must be exact)
 
-① Set ros workspace
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   ~/unitree_ws/  ├── src/  │   ├── unitree_ros/  │   └── unitree_legged_msgs/   `
 
-If the user is not familiar with the path setting, please create the folder named unitree_ws/src and move folder unitree_ros folder in it, which shoud be ~/unitree_ws/src/unitree_ros. Then download the folder unitree_legged_msgs, move it to ~/unitree_ws/src/.
-```
-cd ~/unitree_ws                                                         #Open the folder
-catkin_make                                                             #Initialize ROS workspace
-echo "source ~/unitree_ws/devel/setup.bash">>~/.bashrc #Add the ros path to the environment variables
-source ~/.bashrc                                                        #Update environment variables
-```
-Run roslaunch unitree_gazebo z1.launch, If successfully configured, the simulation interface of Gazebo will be displayed.
+### Build workspace
 
-Tips：After entering `RosLaunch Z`, press tap to check whether the terminal will automatically complete. If rosLaunch Z1_ is successfully programmed, that means the path setting is successful.
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   source /opt/ros/noetic/setup.bash  mkdir -p ~/unitree_ws/src  cd ~/unitree_ws/src  # Place unitree_ros and unitree_legged_msgs here  # (clone or move folders)  cd ~/unitree_ws  catkin_make   `
 
-② Open the CMakeLists in the z1_controller folder and change the compilation conditions as follows.
-```
-set(COMMUNICATION UDP)             #UDP
-set(COMMUNICATION ROS)               #ROS
-```
+❗ **Do NOT modify .bashrc here**
 
-③ Compile z1_controller, create a folder named build in this file (open the second terminal).
-```
-mkdir build
-cd build
-cmake ..
-make
-```
-Execute the executable file ./z1_ctrl in folder build. The default control mode is SDK, if you need to use keyboard control, use ./z1_ctrl k
+### Activate workspace (explicit, deterministic)
 
-When executing this command, the terminal will continuously print statements, such as[WARNING] UDPPort::recv, unblock version, wait time out, this is normal because we have not started the robotic arm SDK to communicate with the robotic arm controller.
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   source ~/unitree_ws/devel/setup.bash   `
 
-Various information will be printed in this window, please observe the content of this window.
+Verify:
 
-④ Open folder z1_SDK and create folder build in it (open the third terminal).
-```
-mkdir build
-cd build
-cmake ..
-make
-```
-Execute the executable file in folder build.
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   rospack find unitree_gazebo   `
 
-There are two executable files generated, example_lowcmd_send and bigdemo.
+### Launch simulation
 
-This time we run bigdemo.
-```
-./highcmd_basic
-```
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   roslaunch unitree_gazebo z1.launch   `
 
-    Keyboard Operation:The specific keys will be introduced in state machine section.
+✔ If Gazebo opens and Z1 appears → ROS path is correct.
 
-First press 2 on the keyboard and then press key 0, the robotic arm will enter the label operation state machine. Input forward at the prompt, then click enter, the robotic arm will run forward. Press ~ again, return to the origin. After returning to the origin, it will automatically enter the joint control mode. At this time, the rotation of the robotic arm can be controlled by long press according to the following keys.
+② Configure communication mode (important)
+------------------------------------------
+
+Edit:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   ~/unitree_ws/src/unitree_ros/z1_controller/CMakeLists.txt   `
+
+### Choose ONE communication mode
+
+**For simulation (ROS):**
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   set(COMMUNICATION ROS)  # set(COMMUNICATION UDP)   `
+
+**For hardware / SDK testing:**
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   set(COMMUNICATION UDP)  # set(COMMUNICATION ROS)   `
+
+❗ Only one must be active.
+
+Rebuild workspace after changes:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   cd ~/unitree_ws  catkin_make   `
+
+③ Build z1\_controller (standalone SDK test)
+--------------------------------------------
+
+This is **not ROS** — it is SDK-level testing.
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   cd ~/unitree_ws/src/unitree_ros/z1_controller  mkdir -p build  cd build  cmake ..  make   `
+
+Run:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   ./z1_ctrl   `
+
+Keyboard mode:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   ./z1_ctrl k   `
+
+Expected warnings like:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   [WARNING] UDPPort::recv timeout   `
+
+✔ This is normal when no physical arm is connected.
+
+④ Build and test Z1 SDK
+-----------------------
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   cd ~/unitree_ws/src/unitree_ros/z1_sdk  mkdir -p build  cd build  cmake ..  make   `
+
+Run demo:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   ./highcmd_basic   `
+
+### Keyboard control (SDK)
+
+*   Press 2 → enter labeled state
+    
+*   Press 0 → confirm
+    
+*   Type forward → execute
+    
+*   Press ~ → return home
+    
+*   Joint control mode activates automatically
+    
+
+⑤ Environment usage rules (non-negotiable)
+------------------------------------------
+
+### .bashrc should contain ONLY:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   source /opt/ros/noetic/setup.bash   `
+
+### Activate Unitree workspace manually when needed:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   source ~/unitree_ws/devel/setup.bash   `
+
+(Optional alias)
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   alias unitree='source ~/unitree_ws/devel/setup.bash'   `
+
+🔬 Validation checklist
+-----------------------
+
+Run these after activation:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   echo $ROS_DISTRO        # noetic  which roscore           # /opt/ros/noetic/bin/roscore  rospack find unitree_controller   `
