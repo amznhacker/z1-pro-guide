@@ -64,6 +64,45 @@ touch z1_driver/src/z1_driver.cpp
 ROS does not assume which files are executable.
 We must explicitly define the source file that will become our driver node.
 
+```
+#z1_driver.cpp
+#include <ros/ros.h>
+#include <unitree_legged_msgs/MotorCmd.h>
+
+int main(int argc, char** argv){
+    ros::init(argc, argv, "z1_driver");
+    ros::NodeHandle nh; 
+
+    // Publisher for Joint01 only (start small)
+    ros::Publisher joint1_pub = nh.advertise<unitree_legged_msgs::MotorCmd>(
+        "/z1_gazebo/Joint01_controller/command", 1); 
+
+    // Fixed-rate control loop 
+    ros::Rate rate(500); // 500 Hz is conservative and safe 
+
+    unitree_legged_msgs::MotorCmd cmd;
+    cmd.mode = 10; 
+    cmd.dq = 0.0; 
+    cmd.tau = 0.0; 
+    cmd.Kp = 15.0; 
+    cmd.Kd = 1.0;
+
+    double t = 0.0; 
+
+    while (ros::ok()){
+
+        // Simple deterministic motion
+        cmd.q = 0.3 * std::sin(t); 
+
+        joint1_pub. publish(cmd); 
+
+        t += 0.002; // controls speed of motion
+        rate.sleep(); 
+    }
+
+}
+```
+
 ### Step 4 — Register the Executable in CMakeLists.txt
 ```
 nano z1_driver/CMakeLists.txt
