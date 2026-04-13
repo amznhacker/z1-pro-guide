@@ -1,45 +1,47 @@
 ---
-layout: default
+layout: page
+title: Unitree Z1 Documentation
 ---
-# Unitree Z1 Documentation
 
-[Before Powering On](./poweron.html) 
+## Documentation
 
-[Technical Parameters](./technicalparameters.html)
+- [Introduction](introduction.md)
+- [Before Powering On](poweron.md)
+- [Setup](setup.md)
+- [Technical Parameters](technicalparameters.md)
+- [SDK Operation](sdkoperation.md)
+- [Environment](environment.md)
+- [Keyboard](keyboard.md)
+- [Abnormalities](abnormalities.md)
 
-[SDK Operation](./sdkoperation.html)
+---
 
-[environment.md](./environment.html)
+## Packing List
 
+| Type | Quantity | Note |
+|------|--------|------|
+| Z1 | 1 | / |
+| Power Adapter | 1 | DC24V |
+| Fixed Plate | 1 | / |
+| Clip G | 2 | / |
+| Net Cable | 1 | 2m |
+| Hexagon socket screws | 4 | M6X16 |
+| Hexagon socket screws | 2 | M2.5X8 |
+| 2mm Hexagonal wrench | 1 | / |
+| 5mm Hexagonal wrench | 1 | / |
 
-[Introduction](./introduction.html)
+---
 
-[Keyboard](./keyboard.html)
+## Installation of Robotic Arm
 
-[Abnormalities](./abnormalities.html)
+When fixing the robotic arm, design the platform based on the base hole pattern and your environment.
 
-[setup](./setup.html)
-# Packing List 
+The platform must support:
+- Static load (weight of the arm)
+- Dynamic forces during acceleration
 
+Use four **M6 bolts** and a hex wrench.
 
-
-
-|Type	|Quantity |	Note |
---- |--- |--- |
-|Z1 |	1	| / |
-| Power Adapter |	1 |	DC24V |
-| Fixed Plate	| 1 |	/ |
-| Clip G | 2	| / |
-| Net Cable	| 1	| 2m | 
-| Hexagon socket screws	| 4	 | M6X16 |
-| Hexagon socket screws |	2	 | M2.5X8 |
-| 2mm Hexagonal wrench |	1	 | / |
-| 5mm Hexagonal wrench | 1 |	/ |
-
-# Installation of Robotics Arm
-
-When fixing the robotic arm, the user can design and install the platform according to the hole size of the robotic arm base and the real environment. The fixed platform of the robotic arm needs to bear not only its weight, but also the instantaneous dynamic force during the maximum acceleration movement. Four M6 bolts are used for the robotic arm, and the robotic arm is installed with a hex wrench. The base installation please see below:
-
-
-Certainly, we provide fixing plates and G clips for directly being fixed to the desktop.
-
+Included mounting options:
+- Fixing plates  
+- G clips for desktop mounting
