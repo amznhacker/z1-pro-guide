@@ -1,15 +1,21 @@
 ---
-layout: default
+layout: howto
+title: Environment Construction
+nav_order: 2
 ---
+
 # Environment Construction
 
-The motion control program can run on the Linux platform under the X86 architecture above Ubuntu 18.04.
-
-Simulations can be run on ROS melodic or neotic versions.
+The motion control program runs on Linux (X86 architecture, Ubuntu 18.04 or above).
+Simulations are supported on ROS Melodic or Noetic.
 
 ## Dependencies
 
-    libboost-dev
-    libeigen3-dev
-## ROS Installation 
-Refer to ROS official melodic installation tutorial
+```bash
+libboost-dev
+libeigen3-dev
+` ` `
+
+## ROS Installation
+
+Refer to the [ROS Melodic installation tutorial](https://wiki.ros.org/melodic/Installation/Ubuntu) on the official ROS wiki.
