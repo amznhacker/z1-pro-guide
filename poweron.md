@@ -4,7 +4,7 @@ layout: default
 # Before powering on
 ## Zero Position
 
-Make sure that the z1_ctrl program is turned off before power on the robotic arm, otherwise there may be danger. And let the robotic arm stay in zero position. The zero position of the robotic arm is as shown in the figure below. The lines on both sides of the joint gaps of J1 and J6 correspond exactly, and the other joints can be placed in order.
+$Make sure that the z1_ctrl program is turned off before power on the robotic arm$, otherwise there may be danger. And let the robotic arm stay in zero position. The zero position of the robotic arm is as shown in the figure below. The lines on both sides of the joint gaps of J1 and J6 correspond exactly, and the other joints can be placed in order.
 
 
 
